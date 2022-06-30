@@ -37,8 +37,11 @@ fn random_vector(length: u8) -> Vec<u8> {
 }
 
 fn prisoners_slip(times: usize) -> f64 {
+    // vector containing the shuffled prisoner's slips
     let mut boxes;
+    // vector containing all the values of passed groups
     let mut v = Vec::<bool>::new();
+    // amount of passed groups
     let mut count = 0.0;
     // loop for how many times the riddle should play to get a better
     // representation of the outcome precentage
@@ -61,11 +64,6 @@ fn prisoners_slip(times: usize) -> f64 {
                 // if the value in the current box and that of the current prisoner are the same,
                 // that means that the prisoner has passed
                 if current_box_value == current_prisoner {
-                    // println!(
-                    //     "prisoner {} found its box on choice {}",
-                    //     current_prisoner,
-                    //     k + 1
-                    // );
                     current_pass = true;
                     break;
                 }
@@ -74,7 +72,6 @@ fn prisoners_slip(times: usize) -> f64 {
                 current_box_value = boxes[current_box_value as usize - 1];
             }
             if !current_pass {
-                // println!("prisoner {} didn\'t pass", current_prisoner);
                 passed = false;
                 break;
             }
