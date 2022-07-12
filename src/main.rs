@@ -1,5 +1,7 @@
 use rand::Rng;
 use std::env;
+use std::sync::mpsc;
+use std::thread;
 
 fn main() {
     let mut args = env::args().skip(1);
@@ -21,7 +23,7 @@ fn main() {
     };
     println!("rounds: {}", first);
     println!("group-size: {}", second);
-    let outcome = prisoners_slip(first as usize, second as usize);
+    let outcome = prisoners_slip_mult(first as usize, second as usize, 1);
     println!("overal chance: {}%", outcome * 100.0);
 }
 
@@ -95,4 +97,20 @@ fn prisoners_slip(times: usize, length: usize) -> f64 {
     }
 
     return count / (v.len() as f64);
+}
+
+fn prisoners_slip_mult(times: usize, length: usize, threads: u8) -> f64 {
+    let mut v = Vec::<bool>::new();
+
+    let mut count = 0.0;
+
+    for i in 0..times {
+        let batch_outcome = || {
+            let boxes = random_vector(length);
+
+            let mut passed = true;
+        };
+    }
+
+    todo!("determine outcome!");
 }
