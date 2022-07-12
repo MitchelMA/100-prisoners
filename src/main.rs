@@ -1,9 +1,8 @@
 use rand::Rng;
 use std::{
     env,
-    sync::mpsc::{self, Receiver},
     thread::{self, JoinHandle},
-    time::{Duration, Instant},
+    time::Instant,
 };
 
 fn main() {
@@ -170,11 +169,11 @@ fn prisoners_slip_mult(times: usize, length: usize, threads: u8) -> f64 {
             passed
         };
 
-        for i in 0..threads {
+        for _i in 0..threads {
             if !(index < times) {
                 break;
             }
-            batches.push(thread::spawn(move || batch_outcome(index)));
+            batches.push(thread::spawn(move || batch_outcome(index + 1)));
             index += 1;
         }
 

@@ -12,3 +12,6 @@ Ik weet niet de precieze wiskunde erachter en waarom het nou ~31% is, maar ik he
   
 ## Verwijzing
 Het idee om dit programma te maken kwam uit de volgende [video](https://www.youtube.com/watch?v=iSNsgj1OCLA). In deze video staat meer informatie op een betere manier dan ik ooit zou kunnen, dus ik raad je aan hem te kijken als het je intereseert.
+
+## Multi-threading
+Recentelijk heb ik ook multi-threading toegevoegd, alleen is dit niet efficiënt bij lage aantallen, meestal heb je er pas baat bij als de groepsgrootte rond de 5000 of hoger zit (tweede argument bij aanroepen van programma)
